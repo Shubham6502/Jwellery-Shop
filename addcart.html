@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="/static/images/logo.png" type="image/gif" />
+    <meta name="keywords" content />
+    <meta name="description" content />
+    <meta name="author" content />
+
+    <title>SJ</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="/static/css/responsive.css" rel="stylesheet" />
+    <link href="/static/css/mystyle.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="mynavbar">
+      <div class="nav-left">
+        <img src="/static/images/logo.png" alt="Shree">
+      </div>
+      <div class="nav-right">
+        <a href="user_products">Home</a>
+        <a href="addcart">Cart</a>
+        <a href="user_orders">orders</a>
+        <a href="logout">Logout</a>
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Shree
+            </span>
+          </a>
+          <div class id>
+
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+              <div id="myNav" class="overlay">
+                <div class="overlay-content">
+                  <a href="user_products">Home</a>
+                  <a href="addcart">Cart</a>
+                  <a href="user_orders">orders</a>
+                  <a href="logout">Logout</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="shop_section layout_padding">
+      <div class="container">
+
+        <div class="cart-container">
+          <!-- Left Section: Purchased Products -->
+          <div class="cart-products">
+
+            <h2>Your Cart</h2>
+            <ul class="product-list">
+              <!-- Example product -->
+               {% for data in data %}
+              
+              <li class="product-item">
+                <img src="{{data[6]}}" alt="Product Image" />
+                <div class="product-info-cart">
+                  <h3>{{data[1]}}</h3>
+                  <p>Price: {{data[2]}}</p>
+                  <p>Quantity: {{data[4]}}</p>
+                </div>
+               
+                <a href="delete_cart_product?pro_id={{data[0]}}&user_id={{data[3]}}"><button class="delete-btn">Delete</button></a>
+              </li>
+              {% endfor %}
+              <!-- <li class="product-item">
+                <img src="/static/images/o2.jpg" alt="Product Image" />
+                <div class="product-info-cart">
+                  <h3>Product Name</h3>
+                  <p>Price: 50</p>
+                  <p>Quantity: 1</p>
+                </div>
+                <button class="delete-btn">Delete</button>
+              </li> -->
+              <!-- More products can go here -->
+            </ul>
+            <div class="cart-total">
+              <h3>Total: {{total}}Rs.</h3>
+            </div>
+           <a href="user_products"> <button type="submit" class="checkout-btn2">Continue Shopping</button></a>
+          </div>
+          <div class="spacing"></div>
+          <!-- Right Section: Address & Payment -->
+          <div class="cart-checkout">
+            <h2>Address & Payment</h2>
+            <form action="/checkout" method="POST">
+              <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address"
+                  placeholder="Enter your address" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="payment">Payment Method</label>
+                <select id="payment" name="payment" required>
+                  
+                  <option value="upi_qr">UPI QR</option>
+                  <option value="cod">Cash on Delivery</option>
+                </select>
+              </div>
+              <input type="hidden" name="total" value="{{total}}">
+              <button type="submit" class="checkout-btn">Proceed to
+                Payment</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="btn-box">
+          <!-- <a href="">
+          View All Products
+        </a> -->
+        </div>
+      </div>
+    </section>
+    <footer class="footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          SHUBHAM PATIL
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+
+    <!-- jQery -->
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/static/js/bootstrap.js"></script>
+    <!-- custom js -->
+    <script src="/static/js/custom.js"></script>
+  </body>
+</html>

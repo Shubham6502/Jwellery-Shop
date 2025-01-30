@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Site Metas -->
+        <link rel="icon" href="/static/images/logo.png" type="image/gif" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+      
+        <title>SJ</title>
+      
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+        <!-- font awesome style -->
+        <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="/static/css/style.css" rel="stylesheet" />
+        <!-- responsive style -->
+        <link href="/static/css/responsive.css" rel="stylesheet" />
+        <link href="/static/css/mystyle.css" rel="stylesheet">
+      
+      </head>
+      
+      <body>
+        
+            <div class="mynavbar">
+              <div class="nav-left">
+                <img src="/static/images/logo.png" alt="Shree">
+            </div>
+                <div class="nav-right">
+                  <a href="admin_product">Home</a>
+                  <a href="addproducts">Add Products</a>
+                  <a href="admin_orders">Orders</a>
+                <!-- <a href="product">Shop</a> -->
+                <a href="logout">Logout</a>
+                </div>
+            </div>
+       
+      
+        <!-- header section strats -->
+        <header class="header_section">
+          <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+              <a class="navbar-brand" href="index.html">
+                <span>
+                  Shree
+                </span>
+              </a>
+              <div class="" id="">
+      
+                <div class="custom_menu-btn">
+                  <button onclick="openNav()">
+                    <span class="s-1"> </span>
+                    <span class="s-2"> </span>
+                    <span class="s-3"> </span>
+                  </button>
+                  <div id="myNav" class="overlay">
+                    <div class="overlay-content">
+                      <a href="admin_product">Home</a>
+                      <a href="addproducts">Add Products</a>
+                     <a href="admin_orders">Orders</a>
+                    <!-- <a href="product">Shop</a> -->
+                    <a href="logout">Logout</a>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+            </nav>
+          </div>
+        </header>
+    
+  <section class="shop_section layout_padding">
+    <div class="container">
+      
+        <div class="admin-container">
+            <!-- Header Section -->
+            <div class="admin-header">
+                <h1 class="admin-header-title">Manage Orders</h1>
+                <p class="admin-header-text">
+                    View and manage all customer orders for Shubham Jewelry Shop.
+                </p>
+            </div>
+    
+            <!-- Orders Table -->
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Email</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                {% for detail in data %}
+                <tbody>
+                    <tr>
+                        <td>{{detail[0]}}</td>
+                        <td>{{detail[1]}}</td>
+                        <td>{{detail[2]}}</td>
+                        <td>{{detail[5]}}</td>
+                        <td>{{detail[6]}}</td>
+                        <td class="order-actions">
+                           <a href="admin_order_details?order_id={{detail[0]}}"> <button class="view-details">View Details</button></a>
+                           {% if detail[6] != "shipped" %}
+                           <a href="update_status?order_id={{ detail[0] }}">
+                               <button class="mark-shipped">Mark as Shipped</button>
+                           </a>
+                       {% else %}
+                           <button class="already-shipped" disabled>Already Shipped</button>
+                       {% endif %}
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td>1002</td>
+                        <td>Jane Smith</td>
+                        <td>jane.smith@example.com</td>
+                        <td>$750</td>
+                        <td>Shipped</td>
+                        <td class="order-actions">
+                            <button class="view-details">View Details</button>
+                            <button class="delete-order">Delete</button>
+                        </td>
+                    </tr> -->
+                    <!-- Add more rows dynamically -->
+                </tbody>
+                {% endfor %}
+            </table>
+    
+            <!-- Order Details Section -->
+            <!-- <div class="order-details-section">
+                <h2 class="order-details-title">Order Details</h2>
+                <div class="adminorder-details">
+                    <p><strong>Order ID:</strong> 1001</p>
+                    <p><strong>Customer Name:</strong> John Doe</p>
+                    <p><strong>Email:</strong> john.doe@example.com</p>
+                    <p><strong>Address:</strong> 123 Main Street, Springfield</p>
+                    <p><strong>Items:</strong> Necklace, Earrings</p>
+                    <p><strong>Total Price:</strong> $500</p>
+                    <p><strong>Status:</strong> Pending</p>
+                </div>
+            </div> -->
+        </div>
+      </div>
+      <div class="btn-box">
+        <!-- <a href="">
+          View All Products
+        </a> -->
+      </div>
+    </div>
+  </section>
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        SHUBHAM PATIL
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="/static/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="/static/js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="/static/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Site Metas -->
+        <link rel="icon" href="/static/images/logo.png" type="image/gif" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+      
+        <title>SJ</title>
+      
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+        <!-- font awesome style -->
+        <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="/static/css/style.css" rel="stylesheet" />
+        <!-- responsive style -->
+        <link href="/static/css/responsive.css" rel="stylesheet" />
+        <link href="/static/css/mystyle.css" rel="stylesheet">
+
+
+      
+      
+      </head>
+      
+      <body>
+        
+            <div class="mynavbar">
+              <div class="nav-left">
+                <img src="/static/images/logo.png" alt="Shree">
+            </div>
+                <div class="nav-right">
+                  <a href="admin_product">Home</a>
+                  <a href="addproducts">Add Products</a>
+                  <a href="admin_orders">Orders</a>
+                <!-- <a href="product">Shop</a> -->
+                <a href="logout">Logout</a>
+                </div>
+            </div>
+       
+      
+        <!-- header section strats -->
+        <header class="header_section">
+          <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+              <a class="navbar-brand" href="index.html">
+                <span>
+                  Shree
+                </span>
+              </a>
+              <div class="" id="">
+      
+                <div class="custom_menu-btn">
+                  <button onclick="openNav()">
+                    <span class="s-1"> </span>
+                    <span class="s-2"> </span>
+                    <span class="s-3"> </span>
+                  </button>
+                  <div id="myNav" class="overlay">
+                    <div class="overlay-content">
+                      <a href="admin_product">Home</a>
+                      <a href="addproducts">Add Products</a>
+                     <a href="admin_orders">Orders</a>
+                    <!-- <a href="product">Shop</a> -->
+                    <a href="logout">Logout</a>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+            </nav>
+          </div>
+        </header>
+    
+  <section class="shop_section layout_padding">
+    <div class="container">
+      
+        <div class="admin-container">
+            <!-- Header Section -->
+            <div class="admin-header">
+                <h1 class="admin-header-title">Manage Orders</h1>
+                
+            </div>
+
+            <div class="order-details-section">
+                <h2 class="order-details-title">Order Details</h2>
+                <div class="adminorder-details">
+                    <p><strong>Order ID:</strong> {{row[0]}}</p>
+                    <p><strong>Customer Name:</strong> {{row[1]}}</p>
+                    <p><strong>Email:</strong> {{row[2]}}</p>
+                    <p><strong>Mobile:</strong> {{row[3]}}</p>
+                    <p><strong>Address:</strong> {{row[3]}}</p>
+                    <p><strong>Total Price:</strong> {{row[5]}}</p>
+                    <p><strong>Status:</strong> {{row[6]}}</p>
+                    <p><strong>Ordered Date:</strong> {{row[7]}}</p>
+                </div>
+            </div> 
+            <!-- Orders Table -->
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        
+                        <th>Image</th>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>total</th>
+                       
+                    </tr>
+                </thead>
+                {% for detail in order %}
+                <tbody>
+                    <tr>
+                        <td><img src=" {{detail[7]}}" class="product-image" alt=""></td>
+                        <td>{{detail[0]}}</td>
+                        <td>{{detail[2]}}</td>
+                        <td>{{detail[3]}}</td>
+                        <td>{{detail[4]}}</td>
+                        <td>{{detail[5]}}</td>
+                        
+                    </tr>
+                   
+                    <!-- Add more rows dynamically -->
+                </tbody>
+                {% endfor %}
+            </table>
+            <div class="spacing"></div>
+            {% if row[6] != "shipped" %}
+            <a href="update_status?order_id={{ row[0] }}">
+                <button class="mark-shipped download-btn" style="border:none">Mark as Shipped</button>
+            </a>
+        {% else %}
+            <button class="already-shipped " style="border:none" disabled>Already Shipped</button>
+        {% endif %}
+            
+    
+            <!-- Order Details Section -->
+             
+        </div>
+      </div>
+      <div class="btn-box">
+        <!-- <a href="">
+          View All Products
+        </a> -->
+      </div>
+    </div>
+  </section>
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        SHUBHAM PATIL
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="/static/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="/static/js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="/static/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="/static/images/logo.png" type="image/gif" />
+    <meta name="keywords" content />
+    <meta name="description" content />
+    <meta name="author" content />
+
+    <title>SJ</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="/static/css/responsive.css" rel="stylesheet" />
+    <link href="/static/css/mystyle.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="mynavbar">
+      <div class="nav-left">
+        <img src="/static/images/logo.png" alt="Shree">
+      </div>
+      <div class="nav-right">
+        <a href="user_products">Home</a>
+        <a href="addcart">Cart</a>
+        <a href="user_orders">orders</a>
+        <a href="logout">Logout</a>
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Shree
+            </span>
+          </a>
+          <div class id>
+
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+              <div id="myNav" class="overlay">
+                <div class="overlay-content">
+                  <a href="user_products">Home</a>
+                  <a href="addcart">Cart</a>
+                  <a href="user_orders">orders</a>
+                  <a href="logout">Logout</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="orders-container">
+      <h1 class="page-title">Your Past Orders</h1>
+
+      <!-- Orders List Section -->
+      <div class="orders-list">
+        <!-- Single Order Item -->
+        {% for data in data %}
+        <div class="order-item">
+          <div class="order-summary">
+            <div class="order-image">
+              <!-- <img src="/static/images/p1.png" alt="Product Image"> -->
+            </div>
+            <div class="order-details">
+              <h2 class="product-name">Order Id:{{data[0]}}</h2>
+              <p class="order-date">Order Date: {{data[7]}}</p>
+              <p class="order-status">Status: <span
+                  class="status-shipped">{{data[6]}}</span></p>
+              <p class="order-total">Total: {{data[5]}} Rs.</p>
+            </div>
+          </div>
+          <div class="order-actions">
+            <a href="user_order_details?order_id={{data[0]}}"><button class="view-details">View Details</button></a>
+            <!-- <button class="track-order">Track Order</button> -->
+          </div>
+        </div>
+        {% endfor %}
+        <!-- Another Order Item -->
+        <!-- <div class="order-item">
+          <div class="order-summary">
+            <div class="order-image">
+              <img src="/static/images/p3.png" alt="Product Image">
+            </div>
+            <div class="order-details">
+              <h2 class="product-name">Product Name</h2>
+              <p class="order-date">Order Date: 2024-11-20</p>
+              <p class="order-status">Status: <span
+                  class="status-delivered">Delivered</span></p>
+              <p class="order-total">Total: $120.00</p>
+            </div>
+          </div>
+          <div class="order-actions">
+            <button class="view-details">View Details</button>
+            <button class="track-order">Track Order</button>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- Footer -->
+      
+    </div>
+    <footer class="fix-footer">
+      <p>© 2024 All Rights Reserved By SHUBHAM PATIL</p>
+    </footer>
+    <!-- footer section -->
+
+    <!-- jQery -->
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/static/js/bootstrap.js"></script>
+    <!-- custom js -->
+    <script src="/static/js/custom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Site Metas -->
+        <link rel="icon" href="/static/images/logo.png" type="image/gif" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+      
+        <title>SJ</title>
+      
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+        <!-- font awesome style -->
+        <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="/static/css/style.css" rel="stylesheet" />
+        <!-- responsive style -->
+        <link href="/static/css/responsive.css" rel="stylesheet" />
+        <link href="/static/css/mystyle.css" rel="stylesheet">
+        
+        <script>
+            function switchImage(clickedImage, clickedThumbnailIndex) {
+                const largeImage = document.getElementById("large-image");
+                const thumbnails = document.getElementsByClassName("thumbnail");
+        
+                const tempSrc = largeImage.src;
+                largeImage.src = clickedImage.src;
+                clickedImage.src = tempSrc;
+        
+                // Update thumbnail styles to show which one is active
+                for (let i = 0; i < thumbnails.length; i++) {
+                    thumbnails[i].classList.remove("active");
+                }
+                thumbnails[clickedThumbnailIndex].classList.add("active");
+            }
+        //    qnt= document.getElementById("quantity");
+        //    price= document.getElementById("price");
+        //    document.getElementByclass("Total").innerHTML=qnt*price;
+        </script>
+        
+      </head>
+      
+      <body>
+
+        
+        
+            <div class="mynavbar">
+              <div class="nav-left">
+                <img src="/static/images/logo.png" alt="Shree">
+            </div>
+                <div class="nav-right">
+                    <a href="/">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="product">Shop</a>
+                    <a href="login">Login</a>
+                </div>
+            </div>
+       
+      
+        <!-- header section strats -->
+        <header class="header_section">
+          <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+              <a class="navbar-brand" href="index.html">
+                <span>
+                  Shree
+                </span>
+              </a>
+              <div class="" id="">
+      
+                <div class="custom_menu-btn">
+                  <button onclick="openNav()">
+                    <span class="s-1"> </span>
+                    <span class="s-2"> </span>
+                    <span class="s-3"> </span>
+                  </button>
+                  <div id="myNav" class="overlay">
+                    <div class="overlay-content">
+                      <a href="/">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="product">Shop</a>
+                    <a href="login">Login</a>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+            </nav>
+          </div>
+        </header>
+    
+  <!-- <section class="shop_section layout_padding"> -->
+    <div class="product-container">
+        <div class="product-images">
+            <!-- Large Image -->
+            <div class="large-image-container">
+                <img id="large-image" src="{{data[4]}}" alt="Large Product Image" class="large-image"/>
+            </div>
+            
+            <!-- Thumbnails Section -->
+            <div class="thumbnails-container">
+                <img class="thumbnail active" src="{{data[5]}}" alt="Thumbnail 1" onclick="switchImage(this, 0)" />
+                <img class="thumbnail" src="{{data[6]}}" alt="Thumbnail 2" onclick="switchImage(this, 1)" />
+                <!-- <img class="thumbnail" src="/static/images/o3.jpg" alt="Thumbnail 3" onclick="switchImage(this, 2)" /> -->
+            </div>
+        </div>
+        
+        <!-- Product Info Section -->
+        
+        <div class="product-info">
+            <h1 class="product-name">{{data[1]}}</h1>
+            <p class="product-price">{{data[3]}}₹</p>
+            <p class="pro-small">Tax included. Shipping calculated at checkout</p>
+            <p>Gross Weight: 5 Gms</p>
+            
+            <form action="login">
+
+            <div class="product-quantity">
+                <label for="quantity">Quantity: </label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" max="3" style="text-align: center;"/>
+            </div>
+            <!-- <input type="hidden" value="{{data[3]}}" id="price"> -->
+            <div class="product-quantity">
+                
+          </div>
+            
+              <input type="hidden" name="pro_id" value="{{data[0]}}">
+              <input type="hidden" name="pro_name" value="{{data[1]}}">
+              <input type="hidden" name="pro_price" value="{{data[3]}}">
+              <input type="hidden" name="pro_image" value="{{data[4]}}">
+             <div class="spacing"></div>
+             <div class="spacing"></div>
+            <a href="login"><button class="add-to-cart">Add to Cart</button></a>
+            
+          </form>
+          <p class="product-description">
+            {{data[2]}}
+        </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 All Rights Reserved By Shubham Patil</p>
+    </footer>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="/static/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="/static/js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="/static/js/custom.js"></script>
+</body>
+</html>

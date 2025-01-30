@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Site Metas -->
+        <link rel="icon" href="/static/images/logo.png" type="image/gif" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+      
+        <title>SJ</title>
+      
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+        <!-- font awesome style -->
+        <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="/static/css/style.css" rel="stylesheet" />
+        <!-- responsive style -->
+        <link href="/static/css/responsive.css" rel="stylesheet" />
+        <link href="/static/css/mystyle.css" rel="stylesheet">
+
+        <script>
+          // Clear data when the page is loaded
+          window.onload = function () {
+            localStorage.clear();
+        sessionStorage.clear();
+
+          };
+      </script>
+      
+      </head>
+      
+      <body>
+        
+            <div class="mynavbar">
+              <div class="nav-left">
+                <img src="/static/images/logo.png" alt="Shree">
+            </div>
+                <div class="nav-right">
+                  <a href="admin_product">Home</a>
+                  <a href="addproducts">Add Products</a>
+                  <a href="admin_orders">Orders</a>
+                <!-- <a href="product">Shop</a> -->
+                <a href="logout">Logout</a>
+                </div>
+            </div>
+       
+      
+        <!-- header section strats -->
+        <header class="header_section">
+          <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+              <a class="navbar-brand" href="index.html">
+                <span>
+                  Shree
+                </span>
+              </a>
+              <div class="" id="">
+      
+                <div class="custom_menu-btn">
+                  <button onclick="openNav()">
+                    <span class="s-1"> </span>
+                    <span class="s-2"> </span>
+                    <span class="s-3"> </span>
+                  </button>
+                  <div id="myNav" class="overlay">
+                    <div class="overlay-content">
+                      <a href="admin_product">Home</a>
+                      <a href="addproducts">Add Products</a>
+                      <a href="admin_orders">Orders</a>
+                    <!-- <a href="product">Shop</a> -->
+                    <a href="logout">Logout</a>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+            </nav>
+          </div>
+        </header>
+    
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Add Products
+        </h2>
+      </div>
+      <div class="form-layout">
+
+
+
+
+
+        <form action="/addproducts" method="POST"  enctype="multipart/form-data" >
+            
+              
+            <div class="mb-3">
+                <label for="pro_name" class="form-label">Enter Product Name</label>
+                <input type="text" class="form-control" id="pro_name" name="pro_name" placeholder="Enter Product Name">
+              </div>
+              <div class="mb-3">
+                <label for="pro_desc" class="form-label">Enter Product Description</label>
+                <textarea class="form-control" id="pro_desc" name="pro_desc" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="pro_price" class="form-label">Enter Price</label>
+                <input class="form-control" type="text" name="pro_price" aria-label="readonly input example" pattern='[0-9]+(\\.[0-9][0-9]?)?'>
+              </div>
+              <label for="exampleFormControlInput1" class="form-label">Upload Images</label>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" id="inputGroupFile02" name="pro_image1">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+              </div>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" name="pro_image2" id="inputGroupFile02">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+              </div>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" name="pro_image3" id="inputGroupFile02">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+              </div>
+              <div class="d-grid col-2 mx-auto">
+              <button class="btn btn-outline-secondary" type="sumbit">Submit   </button>
+            </div>
+            
+          </form>
+        
+      </div>
+      <div class="btn-box">
+        <!-- <a href="">
+          View All Products
+        </a> -->
+      </div>
+    </div>
+  </section>
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        SHUBHAM PATIL
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="/static/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="/static/js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="/static/js/custom.js"></script>
+</body>
+</html>
